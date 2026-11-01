@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>masterpiece</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="nav">
+    <div class="brand">masterpiece<small>unofficial osu! library browser</small></div>
+    <div id="stats" class="stats"></div>
+</header>
+
+<section class="search">
+    <div class="searchbox">
+        <input id="q" type="search" autocomplete="off" spellcheck="false" aria-label="Filter beatmaps and scores"
+            placeholder="camellia stars>=5 aim_dt>=3 reading_hd>=1.5 length<2m30s status=ranked,loved acc>98 mods:HD">
+        <button id="fields-toggle" type="button" aria-expanded="false">fields</button>
+    </div>
+    <p id="qerr" class="qerr" role="alert" hidden></p>
+    <div id="quick" class="quick"></div>
+    <div id="fields" class="fields" hidden></div>
+</section>
+
+<main class="panes">
+    <aside class="pane groups classic">
+        <div class="pane-head">
+            <label>Group by <select id="group-by"></select></label>
+            <label>Buckets <select id="group-bucket"></select></label>
+            <div class="group-tools">
+                <input id="group-search" type="search" placeholder="find a group" aria-label="Find a group">
+                <button id="group-order" type="button" title="Switch group order">natural</button>
+                <button id="group-clear" type="button" hidden>clear</button>
+            </div>
+            <p id="group-note" class="note" hidden></p>
+        </div>
+        <ul id="group-list" class="group-list"></ul>
+    </aside>
+    <aside id="tap-side" class="pane tap-side tap-only"></aside>
+
+    <section class="pane results">
+        <div class="pane-head row">
+            <div class="tabs" role="tablist">
+                <button type="button" role="tab" data-view="beatmaps">Beatmaps</button>
+                <button type="button" role="tab" data-view="scores">Scores</button>
+                <button type="button" role="tab" data-view="tapping">Tapping</button>
+            </div>
+            <span id="count" class="count"></span>
+            <span class="spacer"></span>
+            <label class="classic">Sort <select id="sort-1"></select></label>
+            <button id="dir-1" type="button" class="dir classic"></button>
+            <label class="classic">then <select id="sort-2"></select></label>
+            <button id="dir-2" type="button" class="dir classic"></button>
+            <label class="tap-only">Sort <select id="tap-sort"></select></label>
+            <button id="tap-dir" type="button" class="dir tap-only"></button>
+            <label class="tap-only">Compare with <select id="tap-compare"></select></label>
+            <span id="tap-showing" class="count tap-only"></span>
+            <label id="best-wrap" class="classic">Best score by
+                <select id="best-by">
+                    <option value="score">score</option>
+                    <option value="accuracy">accuracy</option>
+                    <option value="pp">pp</option>
+                    <option value="combo">combo</option>
+                    <option value="recent">most recent</option>
+                </select>
+            </label>
+            <label id="flat-wrap" class="check classic"><input id="flat" type="checkbox"> no sets</label>
+        </div>
+        <div id="list" class="list classic"></div>
+        <div id="tap-list" class="list tap-only"></div>
+    </section>
+
+    <aside id="detail" class="pane detail classic"></aside>
+    <aside id="tap-detail" class="pane detail tap-only"></aside>
+</main>
+</body>
+</html>

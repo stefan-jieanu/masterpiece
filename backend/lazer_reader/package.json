@@ -1,0 +1,6 @@
+{
+  "name": "lazer-reader",
+  "private": true,
+  "type": "module",
+  "dependencies": { "realm": "20.2.0" }
+}

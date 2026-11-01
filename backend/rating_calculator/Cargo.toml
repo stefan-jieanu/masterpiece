@@ -1,0 +1,13 @@
+[package]
+name = "rating-calculator"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+rosu-pp = { path = "vendor/rosu-pp" }
+
+[profile.release]
+lto = "thin"
+
+[workspace]
